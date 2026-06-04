@@ -14,6 +14,13 @@
 
 ---
 
+## Demo
+
+![ETL pipeline run](assets/demo.gif)
+
+*One command runs the full Extract → Transform → Quality-gate → Load pipeline.*
+
+
 ##  What this demonstrates
 
 Clean data engineering fundamentals: each stage is a small, independently testable module; the orchestrator wires them together with structured logging; and a **quality gate** raises an exception on dirty data so nothing invalid ever lands in the warehouse. The source feed is synthetic (and intentionally dirty — nulls, duplicates, negative quantities) so the cleaning logic has something real to do.
