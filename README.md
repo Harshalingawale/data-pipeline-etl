@@ -3,6 +3,7 @@
 > A modular, tested **Extract → Transform → Load** pipeline with a built-in data-quality gate that stops bad data before it reaches the warehouse.
 
 <p align="left">
+  <img src="https://github.com/Harshalingawale/data-pipeline-etl/actions/workflows/ci.yml/badge.svg" alt="CI" />
   <img src="https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white" />
   <img src="https://img.shields.io/badge/pandas-Transform-150458?logo=pandas&logoColor=white" />
   <img src="https://img.shields.io/badge/SQLite-Warehouse-003B57?logo=sqlite&logoColor=white" />
