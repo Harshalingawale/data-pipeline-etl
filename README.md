@@ -1,4 +1,4 @@
-# 🔧 Data Pipeline (ETL)
+#  Data Pipeline (ETL)
 
 > A modular, tested **Extract → Transform → Load** pipeline with a built-in data-quality gate that stops bad data before it reaches the warehouse.
 
@@ -13,13 +13,13 @@
 
 ---
 
-## 📌 What this demonstrates
+##  What this demonstrates
 
 Clean data engineering fundamentals: each stage is a small, independently testable module; the orchestrator wires them together with structured logging; and a **quality gate** raises an exception on dirty data so nothing invalid ever lands in the warehouse. The source feed is synthetic (and intentionally dirty — nulls, duplicates, negative quantities) so the cleaning logic has something real to do.
 
 > A verified run cleans ~5,000 raw rows into 4,970 valid orders and builds a 600-row daily-revenue mart by country.
 
-## 🧱 Pipeline stages
+##  Pipeline stages
 
 ```
  extract.py        transform.py            quality.py         load.py
@@ -40,7 +40,7 @@ Clean data engineering fundamentals: each stage is a small, independently testab
 | `pipeline/load.py` | Write tables to SQLite (one-line swap to Postgres) |
 | `pipeline/run.py` | Orchestrate the run with structured logging |
 
-## ⚡ Quickstart
+##  Quickstart
 
 ```bash
 git clone https://github.com/harshalingawale/data-pipeline-etl.git
@@ -65,7 +65,7 @@ Query the warehouse:
 sqlite3 data/warehouse.db "SELECT country, SUM(revenue) FROM agg_daily_revenue GROUP BY country;"
 ```
 
-## 🧪 Tests & CI
+##  Tests & CI
 
 ```bash
 make test
@@ -73,23 +73,23 @@ make test
 
 The test suite covers cleaning correctness, the aggregate schema, and **both** quality-gate paths (passes on clean data, raises on dirty). CI runs the full pipeline + tests on every push.
 
-## 🔁 Productionizing
+##  Productionizing
 
 - **Real sources** — replace `extract()` with your reader (REST, JDBC, S3, Kafka).
 - **Real warehouse** — change the SQLite connection in `load.py` to a Postgres/Snowflake URI.
 - **Scheduling** — wrap `pipeline.run:run` in an Airflow/Prefect/Dagster task or a cron container.
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 **Python · pandas · NumPy · SQLite · pytest · GitHub Actions**
 
-## 📈 Roadmap
+##  Roadmap
 
 - [ ] Airflow DAG wrapper
 - [ ] Incremental / idempotent loads with watermarks
 - [ ] Great Expectations / Pandera schema validation
 - [ ] dbt models on top of the warehouse
 
-## 📝 License
+##  License
 
 MIT © [Harshal Ingawale](https://github.com/harshalingawale)
